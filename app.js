@@ -56,6 +56,8 @@ const server = net.createServer(socket => {
     console.log('Number Plate:', numberPlate);
 
     // handle
+
+    // TODO: create booking
   });
 
 
