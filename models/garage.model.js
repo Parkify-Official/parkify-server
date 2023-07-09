@@ -1,56 +1,56 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const garageSchema = new mongoose.Schema({
+const garageSchema = new mongoose.Schema(
+  {
     name: {
-        type: String,
+      type: String,
     },
-    ownerUserId:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+    ownerUserId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
     },
-    address:{
-        type: String,
+    address: {
+      type: String,
     },
-    locationX:
-    {
-        type: Number,
+    locationX: {
+      type: Number,
     },
-    locationY:
-    {
-        type: Number,
-    },    
-    slots:[
-        {
-            name:{
-                type: String,
-            },
-            type:{
-                type: String,
-                enum: ['car', 'motorbike', 'truck'],
-            },
-            chargePerHour:{
-                type: Number,
-            },
-            status:{
-                type: String,
-                enum: ['available', 'occupied', 'reserved'],
-            }            
-        }
+    locationY: {
+      type: Number,
+    },
+    slots: [
+      {
+        name: {
+          type: String,
+        },
+        type: {
+          type: String,
+          enum: ["car", "motorbike", "truck"],
+        },
+        chargePerHour: {
+          type: Number,
+        },
+        status: {
+          type: String,
+          enum: ["available", "occupied", "reserved"],
+        },
+      },
     ],
-    images:[
-        {
-            type: String,
-        }
-    ],
-    locationCategory:{
+    images: [
+      {
         type: String,
-        enum:['prime', 'normal', 'outskirt']
-    }
-},
-{
+      },
+    ],
+    locationCategory: {
+      type: String,
+      enum: ["prime", "normal", "outskirt"],
+    },
+  },
+  {
     timestamps: true,
-});
+  },
+);
 
-const garage = mongoose.model('Garage', garageSchema);
+const garage = mongoose.model("Garage", garageSchema);
 
 module.exports = garage;

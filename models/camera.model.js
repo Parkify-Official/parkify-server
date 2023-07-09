@@ -1,26 +1,26 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const cameraSchema = new mongoose.Schema({
-    garageId:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Garage',
+const cameraSchema = new mongoose.Schema(
+  {
+    garageId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Garage",
     },
-    locationX:
-    {
-        type: Number,
+    locationX: {
+      type: Number,
     },
-    locationY:
-    {
-        type: Number,
+    locationY: {
+      type: Number,
     },
     address: {
-        type: String,
+      type: String,
     },
-},
-{
+  },
+  {
     timestamps: true,
-});
+  },
+);
 
-const Camera = mongoose.model('Camera', cameraSchema);
+const Camera = mongoose.model("Camera", cameraSchema);
 
 module.exports = Camera;
