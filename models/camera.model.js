@@ -5,6 +5,12 @@ const cameraSchema = new mongoose.Schema(
     garageId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Garage",
+      required: true,
+    },
+    type: {
+      type: String,
+      enum: ["in", "out"],
+      required: true,
     },
     locationX: {
       type: Number,

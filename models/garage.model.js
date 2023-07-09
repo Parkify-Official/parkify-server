@@ -4,6 +4,7 @@ const garageSchema = new mongoose.Schema(
   {
     name: {
       type: String,
+      required: true,
     },
     ownerUserId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -11,28 +12,36 @@ const garageSchema = new mongoose.Schema(
     },
     address: {
       type: String,
+      required: true,
     },
     locationX: {
       type: Number,
+      required: true,
     },
     locationY: {
       type: Number,
+      required: true,
     },
     slots: [
       {
         name: {
           type: String,
+          required: true,
+          unique: true,
         },
         type: {
           type: String,
           enum: ["car", "motorbike", "truck"],
+          required: true,
         },
         chargePerHour: {
           type: Number,
+          required: true,
         },
         status: {
           type: String,
           enum: ["available", "occupied", "reserved"],
+          default: "available",
         },
       },
     ],
@@ -44,6 +53,7 @@ const garageSchema = new mongoose.Schema(
     locationCategory: {
       type: String,
       enum: ["prime", "normal", "outskirt"],
+      required: true,
     },
   },
   {
