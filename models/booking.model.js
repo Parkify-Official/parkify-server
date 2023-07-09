@@ -32,17 +32,15 @@ const bookingSchema = new mongoose.Schema(
     },
     endTime: {
       type: Date,
-      required: true,
     },
     amount: {
       type: Number,
-      required: true,
     },
-    amountPerHour: {
+    chargePerHour: {
       type: Number,
       required: true,
     },
-    lisencePlate: {
+    licenseId: {
       type: String,
       required: true,
     },

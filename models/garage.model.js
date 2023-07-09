@@ -40,7 +40,7 @@ const garageSchema = new mongoose.Schema(
         },
         status: {
           type: String,
-          enum: ["available", "occupied", "reserved"],
+          enum: ["available", "occupied", "occupied"],
           default: "available",
         },
       },

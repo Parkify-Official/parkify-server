@@ -5,9 +5,17 @@ const newGarage = async (garageBody) => {
   return await garage.create(garageBody);
 };
 
+const updateGarage = async (garageId, garageBody) => {
+  return await garage.findByIdAndUpdate(garageId, garageBody, { new: true });
+};
+
 const addCamera = async (cameraBody) => {
   const newCamera = await camera.create(cameraBody);
   return newCamera;
+};
+
+const findCamera = async (params) => {
+  return await camera.findOne(params);
 };
 
 const findGarage = async (params) => {
@@ -38,4 +46,6 @@ module.exports = {
   newGarage,
   findGarage,
   addCamera,
+  findCamera,
+  updateGarage,
 };

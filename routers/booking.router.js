@@ -3,6 +3,6 @@ const bookingController = require("../controllers/booking.controller");
 
 const router = Router();
 
-router.route("/new").post(bookingController.newBooking);
+router.route("/accept").post(bookingController.acceptBooking);
 
 module.exports = router;
