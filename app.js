@@ -12,6 +12,7 @@ dotenv.config();
 
 const uri = String(process.env.MONGO_URI);
 const port = Number(process.env.PORT);
+const socket_port = Number(process.env.SOCKET_PORT);
 const connectOptions = {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -39,7 +40,37 @@ let logStream = fs.createWriteStream(path.join(__dirname, 'file.log'), {
   flags: 'a',
 });
 
+const net = require('net');
+
+const server = net.createServer(socket => {
+  console.log('Camera connected.');
+
+  // Handle incoming data from the camera
+  socket.on('data', data => {
+    const requestData = JSON.parse(data.toString());
+    const { cameraId, detected, numberPlate } = requestData;
+
+    console.log('Received data from camera:');
+    console.log('Camera ID:', cameraId);
+    console.log('Detected:', detected);
+    console.log('Number Plate:', numberPlate);
+
+    // handle
+  });
+
+
+  socket.on('end', () => {
+    console.log('Camera disconnected.');
+  });
+
+  socket.on('error', err => {
+    console.error('Socket error:', err);
+  });
+});
+
+
 app.use(morgan('combined', { stream: logStream }));
 app.use(morgan('combined'));
 
 app.listen(port, () => console.log(`Parkify Server running at http://localhost:${port}`));
+server.listen(socket_port, () => console.log('Parkify Socket server running at http://localhost:8080'));
