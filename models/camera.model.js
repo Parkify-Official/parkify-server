@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 
 const cameraSchema = new mongoose.Schema({
-    location_x:
+    garageId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Garage',
+    },
+    locationX:
     {
         type: Number,
     },
-    location_y:
+    locationY:
     {
         type: Number,
     },
