@@ -22,29 +22,14 @@ const garageSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    slots: [
-      {
-        name: {
-          type: String,
-          required: true,
-          unique: true,
-        },
-        type: {
-          type: String,
-          enum: ["car", "motorbike", "truck"],
-          required: true,
-        },
-        chargePerHour: {
-          type: Number,
-          required: true,
-        },
-        status: {
-          type: String,
-          enum: ["available", "occupied", "occupied"],
-          default: "available",
-        },
-      },
-    ],
+    slots: {
+      type: Number,
+      required: true,
+    },
+    chargePerHour: {
+      type: Number,
+      required: true,
+    },
     images: [
       {
         type: String,

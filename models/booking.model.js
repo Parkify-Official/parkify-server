@@ -12,18 +12,9 @@ const bookingSchema = new mongoose.Schema(
       ref: "Garage",
       required: true,
     },
-    slotId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Garage.slots",
-      required: true,
-    },
-    slotName: {
-      type: String,
-      required: true,
-    },
     status: {
       type: String,
-      enum: ["inbooking", "cancelled", "completed"],
+      enum: ["inbooking", "completed"],
       required: true,
     },
     startTime: {
@@ -35,14 +26,8 @@ const bookingSchema = new mongoose.Schema(
     },
     amount: {
       type: Number,
-    },
-    chargePerHour: {
-      type: Number,
       required: true,
-    },
-    licenseId: {
-      type: String,
-      required: true,
+      default: 0,
     },
   },
   {

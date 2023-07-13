@@ -46,8 +46,30 @@ const getAllGarages = async (req, res) => {
   }
 };
 
+const bookGarage = async (req, res) => {
+
+  // latitude and longitude are accessed from the request body
+  // we get 10 garages sorted by distance from the user
+  // garages have locationX and locationY as their coordinates
+  // find 10 nearest garages with slot not == 0
+  
+
+  try {
+    const garages = await garageService.findCloseGarages({});
+    const return_object = {
+      garages,
+    };
+
+    messageCustom(res, OK, "All garages", return_object);
+  } catch (error) {
+    handleErrors(req, res, error);
+  }
+};
+
+
 module.exports = {
   newGarage,
   getAllGarages,
   addCamera,
+  bookGarage,
 };

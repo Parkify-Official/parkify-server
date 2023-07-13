@@ -10,9 +10,9 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-const uri = String(process.env.MONGO_URI);
-const port = Number(process.env.PORT);
-const socket_port = Number(process.env.SOCKET_PORT);
+const uri = "mongodb://localhost:27017/parkify"; 
+const port = 6969;
+const socket_port = 9696;
 const connectOptions = {
   useNewUrlParser: true,
   useCreateIndex: true,
